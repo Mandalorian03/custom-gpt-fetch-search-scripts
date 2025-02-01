@@ -1,12 +1,14 @@
 from flask import Flask, jsonify
 import gspread
+import os
 from google.oauth2.service_account import Credentials
 
 app = Flask(__name__)
 
 # Google Sheets setup
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
-SERVICE_ACCOUNT_FILE = "/Users/akashaggarwal/Desktop/CustomGPT_backend/service_account.json"  # Path to your JSON file
+# Set the default path for the service account file
+SERVICE_ACCOUNT_FILE = "/etc/secrets/service_account.json"  # Path where Render stores secret files
 SPREADSHEET_ID = "1FCdaPQssDNfu1LrYA-bL-H_XwS6S3v2MUrqdXVE2W68"  # Extract this from the Google Sheet URL
 
 # Authenticate and connect to Google Sheets
