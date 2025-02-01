@@ -24,6 +24,9 @@ def fetch_scripts():
         return jsonify(data), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+@app.route('/', methods=['GET'])
+def home():
+    return "Welcome to the Custom GPT Fetch Scripts API!", 200
 
 if __name__ == '__main__':
     app.run(port=5000)
